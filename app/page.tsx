@@ -1,69 +1,84 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+import Link from 'next/link'
+import { Rail } from '@/components/Rail'
+import { Reveal } from '@/components/Reveal'
+import { Footer } from '@/components/Footer'
+import { featured, writing } from '@/content/projects'
 
 export default function Home() {
   return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className={styles.intro}>
-          <h1>
-            To get started, edit the{" "}
-            <code className={styles.code}>page.tsx</code> file.
-          </h1>
+    <>
+      <Rail />
+      <main className="body">
+        <section className="hero">
+          <span className="lbl">Product · Applied AI</span>
+          <h1>I build AI products, then find out what people actually do with them.</h1>
           <p>
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Learning
-            </a>{" "}
-            center.
+            MS Computer Science at Columbia. Four years shipping FICC e-trading products at Bank of
+            America. Currently building retrieval systems that cite their sources.
           </p>
-        </div>
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
-            />
-            Deploy Now
-          </a>
-          <a
-            className={styles.secondary}
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
+        </section>
+
+        <section className="homesec" id="work">
+          <div className="sh">
+            <h2>Selected work</h2>
+            <span className="lbl">2024 — 2026</span>
+          </div>
+
+          {featured.map((p, i) => (
+            <Reveal key={p.slug}>
+              <Link className="row" href={`/work/${p.slug}`}>
+                <span className="ix">{String(i + 1).padStart(2, '0')}</span>
+                <div>
+                  <h3>
+                    <span className="t">{p.name}</span>
+                  </h3>
+                  <p className="hook">{p.hook}</p>
+                  <div className="tg">
+                    {p.tags.map((t) => (
+                      <span key={t}>{t}</span>
+                    ))}
+                  </div>
+                </div>
+                <div className="ev">
+                  {p.evidence.map((e) => (
+                    <div key={e.label}>
+                      <b>{e.value}</b>
+                      <em>{e.label}</em>
+                    </div>
+                  ))}
+                </div>
+              </Link>
+            </Reveal>
+          ))}
+
+          <div style={{ marginTop: 28 }}>
+            <Link className="lbl colophon-link" href="/work">
+              All projects →
+            </Link>
+          </div>
+        </section>
+
+        <section className="homesec" id="writing">
+          <div className="sh">
+            <h2>Writing</h2>
+            <span className="lbl">{String(writing.length).padStart(2, '0')}</span>
+          </div>
+          {writing.map((w, i) => (
+            <Reveal key={w.slug}>
+              <Link className="wrow" href={`/writing/${w.slug}`}>
+                <span className="ix">{String(i + 1).padStart(2, '0')}</span>
+                <div>
+                  <h3>{w.title}</h3>
+                  <p>{w.excerpt}</p>
+                </div>
+                <span className="dt">{w.date}</span>
+              </Link>
+            </Reveal>
+          ))}
+        </section>
+
+        <Footer />
       </main>
-    </div>
-  );
+    </>
+  )
 }
