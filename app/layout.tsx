@@ -31,7 +31,7 @@ const kr = Noto_Sans_KR({
 })
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://example.com'), // TODO: your domain
+  metadataBase: new URL('https://irene-nam.com'), // TODO: your domain
   title: {
     default: 'Irene Nam',
     template: '%s — Irene Nam',
@@ -42,8 +42,7 @@ export const metadata: Metadata = {
     type: 'website',
     siteName: 'Irene Nam',
   },
-  // TODO: flip to false if you want the site indexed
-  robots: { index: false, follow: false },
+  robots: { index: true, follow: true },
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

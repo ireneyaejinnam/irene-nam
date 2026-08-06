@@ -1,7 +1,7 @@
 'use client'
 import { useEffect, useMemo, useState } from 'react'
 import { useRouter } from 'next/navigation'
-import { allProjects, writing } from '@/content/projects'
+import { allProjects, writing, experience } from '@/content/projects'
 
 type Item = { name: string; kind: string; href: string }
 
@@ -15,8 +15,8 @@ export function CommandPalette() {
     () => [
       ...allProjects.map((p) => ({ name: p.name, kind: 'Project', href: `/work/${p.slug}` })),
       ...writing.map((w) => ({ name: w.title, kind: 'Writing', href: `/writing/${w.slug}` })),
+      ...experience.map((e) => ({ name: e.title, kind: 'Experience', href: `/experience/${e.slug}` })),
       { name: 'About', kind: 'Page', href: '/about' },
-      { name: 'Bank of America', kind: 'Page', href: '/experience/bofa' },
       { name: 'Colophon', kind: 'Page', href: '/colophon' },
       { name: 'Résumé', kind: 'Page', href: '/resume.pdf' },
     ],

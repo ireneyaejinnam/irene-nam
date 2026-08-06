@@ -55,17 +55,6 @@ export const projects: Project[] = [
     order: 3,
   },
   {
-    slug: 'sea-lab',
-    name: 'SEA Lab',
-    hook: 'A multi-agent system for mental rehearsal. Under submission to CHI 2027.',
-    tags: ['Multi-agent', 'HCI'],
-    evidence: [{ value: "CHI '27", label: 'under submission' }],
-    year: '2026',
-    status: 'review',
-    featured: false,
-    order: 4,
-  },
-  {
     slug: 'dart-rag',
     name: 'dart-rag',
     hook: 'Korean-language retrieval benchmark against frontier models on corporate filings.',
@@ -74,7 +63,7 @@ export const projects: Project[] = [
     year: '2026',
     status: 'building',
     featured: false,
-    order: 5,
+    order: 4,
   },
   {
     slug: 'swish',
@@ -88,7 +77,7 @@ export const projects: Project[] = [
     year: '2025',
     status: 'complete',
     featured: false,
-    order: 6,
+    order: 5,
   },
 ]
 
@@ -108,5 +97,20 @@ export const writing = [
     title: 'Notes on citation fidelity in retrieval systems',
     excerpt: 'A fluent answer with a wrong citation is the worst failure mode there is.',
     date: 'Jun 2026',
+  },
+]
+
+export const experience = [
+  {
+    slug: 'bofa',
+    title: 'Bank of America',
+    excerpt: 'Product manager, FICC e-trading. Four years between traders, quants and engineers.',
+    date: '2021–2025',
+  },
+  {
+    slug: 'sea-lab',
+    title: 'SEA Lab',
+    excerpt: 'A multi-agent system for mental rehearsal. Under submission to CHI 2027.',
+    date: '2026',
   },
 ]

@@ -9,14 +9,14 @@ export type TocItem = { id: string; label: string }
 type Props = {
   /** Section links for case-study pages. Omit for the site-wide nav. */
   toc?: TocItem[]
-  /** Show a back link instead of the primary nav. */
-  back?: boolean
+  /** Show a back link instead of the primary nav. Accepts true (defaults to /work) or a { label, href } object. */
+  back?: boolean | { label: string; href: string }
   links?: { label: string; href: string }[]
 }
 
 const NAV = [
   { href: '/work', label: 'Work' },
-  { href: '/writing', label: 'Writing' },
+  { href: '/experience', label: 'Experience' },
   { href: '/about', label: 'About' },
   { href: '/resume.pdf', label: 'Résumé' },
 ]
@@ -47,8 +47,8 @@ export function Rail({ toc, back = false, links }: Props) {
           </div>
         </Link>
         {back && (
-          <Link className="back" href="/work">
-            <i>←</i> All work
+          <Link className="back" href={typeof back === 'object' ? back.href : '/work'}>
+            <i>←</i> {typeof back === 'object' ? back.label : 'All work'}
           </Link>
         )}
       </div>

@@ -183,19 +183,24 @@ export function NextPrev({
   prev,
   next,
 }: {
-  prev: { label: string; href: string }
-  next: { label: string; href: string }
+  prev?: { label: string; href: string }
+  next?: { label: string; href: string }
 }) {
+  if (!prev && !next) return null
   return (
     <div className="nextprev">
-      <a href={prev.href}>
-        <em>Previous</em>
-        <b>{prev.label}</b>
-      </a>
-      <a href={next.href} style={{ textAlign: 'right' }}>
-        <em>Next</em>
-        <b>{next.label}</b>
-      </a>
+      {prev ? (
+        <a href={prev.href}>
+          <em>Previous</em>
+          <b>{prev.label}</b>
+        </a>
+      ) : <span />}
+      {next ? (
+        <a href={next.href} style={{ textAlign: 'right' }}>
+          <em>Next</em>
+          <b>{next.label}</b>
+        </a>
+      ) : <span />}
     </div>
   )
 }

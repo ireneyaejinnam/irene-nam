@@ -15,8 +15,8 @@ export function Stub({
   status: string
   children: ReactNode
   facts: { label: string; value: ReactNode }[]
-  prev: { label: string; href: string }
-  next: { label: string; href: string }
+  prev?: { label: string; href: string }
+  next?: { label: string; href: string }
 }) {
   return (
     <>

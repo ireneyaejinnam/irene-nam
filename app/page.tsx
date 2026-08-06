@@ -2,7 +2,7 @@ import Link from 'next/link'
 import { Rail } from '@/components/Rail'
 import { Reveal } from '@/components/Reveal'
 import { Footer } from '@/components/Footer'
-import { featured, writing } from '@/content/projects'
+import { featured, experience } from '@/content/projects'
 
 export default function Home() {
   return (
@@ -58,14 +58,14 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="homesec" id="writing">
+        <section className="homesec" id="experience">
           <div className="sh">
-            <h2>Writing</h2>
-            <span className="lbl">{String(writing.length).padStart(2, '0')}</span>
+            <h2>Experience</h2>
+            <span className="lbl">{String(experience.length).padStart(2, '0')}</span>
           </div>
-          {writing.map((w, i) => (
+          {experience.map((w, i) => (
             <Reveal key={w.slug}>
-              <Link className="wrow" href={`/writing/${w.slug}`}>
+              <Link className="wrow" href={`/experience/${w.slug}`}>
                 <span className="ix">{String(i + 1).padStart(2, '0')}</span>
                 <div>
                   <h3>{w.title}</h3>

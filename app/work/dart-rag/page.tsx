@@ -19,7 +19,7 @@ export default function Page() {
             { label: 'Baselines', value: 'GPT-4o, Claude, Gemini' },
             { label: 'Status', value: 'Test set in construction' },
           ]}
-          prev={{ label: 'SEA Lab', href: '/work/sea-lab' }}
+          prev={{ label: 'Scout', href: '/work/scout' }}
           next={{ label: 'SWISH', href: '/work/swish' }}
         >
           <p>A benchmark comparing grounded retrieval against frontier models answering from parameters alone, over Korean corporate filings from DART. The English-language version of this question is close to settled. The Korean one is not, and the gap is where the interesting answer lives.</p>

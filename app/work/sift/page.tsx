@@ -246,7 +246,7 @@ export default function Sift() {
           </Section>
 
           <NextPrev
-            prev={{ label: 'SEA Lab', href: '/work/sea-lab' }}
+            prev={{ label: 'SWISH', href: '/work/swish' }}
             next={{ label: 'Conviction', href: '/work/conviction' }}
           />
         </article>

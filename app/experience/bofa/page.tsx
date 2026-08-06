@@ -11,7 +11,7 @@ const Todo = ({ children }: { children: React.ReactNode }) => (
 export default function BofA() {
   return (
     <>
-      <Rail back />
+      <Rail back={{ label: 'All experience', href: '/experience' }} />
       <main className="body">
         <Stub
           eyebrow="Experience · 2021–2025"
@@ -23,8 +23,7 @@ export default function BofA() {
             { label: 'Licences', value: 'Series 7, Series 63' },
             { label: 'Domain', value: 'Fixed income, currencies, commodities' },
           ]}
-          prev={{ label: 'Conviction', href: '/work/conviction' }}
-          next={{ label: 'Sift', href: '/work/sift' }}
+          next={{ label: 'SEA Lab', href: '/experience/sea-lab' }}
         >
           <p>
             I was a product manager on FICC electronic trading. The work was external vendor

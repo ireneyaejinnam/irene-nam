@@ -7,10 +7,10 @@ export const metadata = { title: 'SEA Lab' }
 export default function Page() {
   return (
     <>
-      <Rail back />
+      <Rail back={{ label: 'All experience', href: '/experience' }} />
       <main className="body">
         <Stub
-          eyebrow="Project 04 · Research · 2026"
+          eyebrow="Experience · Research · 2026"
           title="A multi-agent system for mental rehearsal."
           status="Under submission · CHI 2027"
           facts={[
@@ -19,8 +19,7 @@ export default function Page() {
             { label: 'Advisor', value: 'Prof. Xuhai “Orson” Xu' },
             { label: 'Venue', value: 'CHI 2027, under submission' },
           ]}
-          prev={{ label: 'Scout', href: '/work/scout' }}
-          next={{ label: 'dart-rag', href: '/work/dart-rag' }}
+          prev={{ label: 'Bank of America', href: '/experience/bofa' }}
         >
           <p style={{ color: 'var(--ink2)' }}>[TODO: two or three sentences on what mental rehearsal is and why a multi-agent architecture suits it. Written for someone who does not read HCI papers.]</p>
           <p style={{ color: 'var(--ink2)' }}>[TODO: one sentence on your specific contribution and the author position you expect.]</p>
