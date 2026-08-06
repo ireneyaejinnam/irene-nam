@@ -1,7 +1,6 @@
-import Image from 'next/image'
 import Link from 'next/link'
 import { RailProgress } from './RailProgress'
-import { LangToggle } from './LangToggle'
+import { ThemeToggle } from './ThemeToggle'
 import { TocLinks } from './TocLinks'
 
 export type TocItem = { id: string; label: string }
@@ -23,9 +22,9 @@ const NAV = [
 
 export function Rail({ toc, back = false, links }: Props) {
   const social = links ?? [
-    { label: 'Email', href: 'mailto:you@example.com' },
-    { label: 'GitHub', href: 'https://github.com/' },
-    { label: 'LinkedIn', href: 'https://linkedin.com/in/' },
+    { label: 'Email', href: 'mailto:irene.nam@columbia.edu' },
+    { label: 'GitHub', href: 'https://github.com/ireneyaejinnam/' },
+    { label: 'LinkedIn', href: 'https://www.linkedin.com/in/ireneynam/' },
   ]
 
   return (
@@ -34,14 +33,8 @@ export function Rail({ toc, back = false, links }: Props) {
 
       <div>
         <Link href="/" className="idblock">
-          <Image
-            className="avatar"
-            src="/portrait/64.png"
-            alt=""
-            width={64}
-            height={73}
-            priority
-          />
+          <img className="avatar avatar-dark" src="/portrait/64.png" width={64} height={73} alt="" />
+          <img className="avatar avatar-light" src="/portrait/64light.png" width={64} height={73} alt="" />
           <div className="mark">
             Irene Nam<span>New York</span>
           </div>
@@ -74,7 +67,7 @@ export function Rail({ toc, back = false, links }: Props) {
             </a>
           ))}
         </div>
-        <LangToggle />
+        <ThemeToggle />
         <div className="kbd">
           <b>⌘</b>
           <b>K</b> search

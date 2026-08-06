@@ -1,4 +1,3 @@
-import Image from 'next/image'
 import { Rail } from '@/components/Rail'
 import { Footer } from '@/components/Footer'
 
@@ -129,9 +128,16 @@ export default function About() {
           </div>
 
           <aside>
-            <Image
-              className="port"
+            <img
+              className="port port-dark"
               src="/portrait/160.png"
+              alt="Illustrated portrait of Irene Nam"
+              width={200}
+              height={228}
+            />
+            <img
+              className="port port-light"
+              src="/portrait/160light.png"
               alt="Illustrated portrait of Irene Nam"
               width={200}
               height={228}
