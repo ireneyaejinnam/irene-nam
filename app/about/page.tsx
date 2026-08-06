@@ -18,8 +18,8 @@ export default function About() {
               About
             </span>
             <h1>
-              I translate between people who don’t share a vocabulary, then check whether the thing
-              we built did what everyone assumed it would.
+              I translate between people who don't share a vocabulary, build from what I learn, 
+              then figure out what happens when it meets the real world.
             </h1>
 
             <p className="lede" style={{ marginTop: 34 }}>

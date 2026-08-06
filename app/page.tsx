@@ -11,10 +11,10 @@ export default function Home() {
       <main className="body">
         <section className="hero">
           <span className="lbl">Product · Applied AI</span>
-          <h1>I build AI products, then find out what people actually do with them.</h1>
+          <h1>I turn messy problems into things we can build, then test them against reality.</h1>
           <p>
-            MS Computer Science at Columbia. Four years shipping FICC e-trading products at Bank of
-            America. Currently building retrieval systems that cite their sources.
+            Four years building and shipping FICC e-trading products at Bank of America. 
+            Now an M.S. in Computer Science at Columbia, working across product, AI, and engineering.
           </p>
         </section>
 
