@@ -14,8 +14,8 @@ type Props = {
 }
 
 const NAV = [
-  { href: '/work', label: 'Work' },
   { href: '/experience', label: 'Experience' },
+  { href: '/projects', label: 'Projects' },
   { href: '/about', label: 'About' },
   { href: '/resume.pdf', label: 'Résumé' },
 ]
@@ -40,8 +40,8 @@ export function Rail({ toc, back = false, links }: Props) {
           </div>
         </Link>
         {back && (
-          <Link className="back" href={typeof back === 'object' ? back.href : '/work'}>
-            <i>←</i> {typeof back === 'object' ? back.label : 'All work'}
+          <Link className="back" href={typeof back === 'object' ? back.href : '/projects'}>
+            <i>←</i> {typeof back === 'object' ? back.label : 'All projects'}
           </Link>
         )}
       </div>

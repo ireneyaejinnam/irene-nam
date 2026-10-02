@@ -13,7 +13,7 @@ export function CommandPalette() {
 
   const items: Item[] = useMemo(
     () => [
-      ...allProjects.map((p) => ({ name: p.name, kind: 'Project', href: `/work/${p.slug}` })),
+      ...allProjects.map((p) => ({ name: p.name, kind: 'Project', href: `/projects/${p.slug}` })),
       ...writing.map((w) => ({ name: w.title, kind: 'Writing', href: `/writing/${w.slug}` })),
       ...experience.map((e) => ({ name: e.title, kind: 'Experience', href: `/experience/${e.slug}` })),
       { name: 'About', kind: 'Page', href: '/about' },
