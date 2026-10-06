@@ -109,7 +109,7 @@ export default function About() {
               <div className="nowlist">
                 <div>
                   <em>Building</em>
-                  <p>Conviction, and an MCP host called Scout that runs my own job search.</p>
+                  <p>Conviction, a retrieval system for SEC filings.</p>
                 </div>
                 <div>
                   <em>Researching</em>

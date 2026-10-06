@@ -1,8 +1,9 @@
 import { Rail } from '@/components/Rail'
 import { Reveal } from '@/components/Reveal'
 import { Footer } from '@/components/Footer'
-import { Header, Section, Pull, Caveat, SpecTable, Shots, NextPrev } from '@/components/CaseStudy'
+import { Header, Section, Pull, Caveat, SpecTable, NextPrev } from '@/components/CaseStudy'
 import { FunnelChart } from '@/components/CaseStudy/FunnelChart'
+import { PipelineDiagram } from '@/components/CaseStudy/PipelineDiagram'
 
 export const metadata = {
   title: 'Sift',
@@ -27,15 +28,15 @@ export default function Sift() {
 
       <main className="body">
         <Header
-          eyebrow="Project 01 · Consumer iOS · 2025–2026"
+          eyebrow="Project 01 · Consumer iOS · 2026"
           title="Nobody finished onboarding. Personalization worked anyway."
-          dek="Sift is a taste-first event app for New York, co-built and shipped to the App Store. We designed an onboarding flow to learn your taste before you saw a single event. Not one user completed it — and the recommender reached full confidence for most of them regardless."
+          dek="Sift is a taste-first event app for New York, co-built and shipped to the App Store. We designed an onboarding flow to learn your taste before you saw a single event. Not one user finished it. The recommender reached full confidence for most of them anyway."
           cta={[
-            { label: 'View on the App Store', href: '#' },
-            { label: 'Source on GitHub', href: '#', ghost: true },
+            { label: 'View on the App Store', href: 'https://apps.apple.com/us/app/sift-nyc-events/id6761741207' },
+            { label: 'Source on GitHub', href: 'https://github.com/ireneyaejinnam/sift-mobile', ghost: true },
           ]}
           facts={[
-            { label: 'My role', value: 'Co-founder — product & engineering' },
+            { label: 'My role', value: 'Co-founder, product and engineering' },
             { label: 'Team', value: 'Four co-founders' },
             { label: 'Stack', value: 'React Native, Expo, Supabase' },
             { label: 'Status', value: 'Live on the App Store' },
@@ -48,15 +49,21 @@ export default function Sift() {
         />
 
         <Reveal>
-          <Shots
-            caption="Replace with App Store screenshots at 1290 × 2796 (iPhone 15 Pro Max), exported at 2×."
-            items={[
-              { title: 'Screenshot', note: 'Feed · 1290 × 2796', cap: '01 · Deck' },
-              { title: 'Screenshot', note: 'Mood picker · 1290 × 2796', cap: '02 · Taste-setter' },
-              { title: 'Screenshot', note: 'Event detail · 1290 × 2796', cap: '03 · Event' },
-              { title: 'Screenshot', note: 'Share-sheet import · 1290 × 2796', cap: '04 · Import' },
-            ]}
-          />
+          <div className="shots app-shots">
+            {[
+              { src: '/shots/sift/01-deck.png', cap: '01 · Deck' },
+              { src: '/shots/sift/02-taste-setter.png', cap: '02 · Taste-setter' },
+              { src: '/shots/sift/03-event.png', cap: '03 · Event' },
+              { src: '/shots/sift/04-import.png', cap: '04 · Import' },
+            ].map((s) => (
+              <div className="phone" key={s.cap}>
+                <div className="scr">
+                  <img src={s.src} alt={s.cap} />
+                </div>
+                <span className="cap">{s.cap}</span>
+              </div>
+            ))}
+          </div>
         </Reveal>
 
         <article>
@@ -70,10 +77,10 @@ export default function Sift() {
             <p>
               The first was fragmentation:{' '}
               <strong>87% of the 18–35 New Yorkers we spoke to used three or more apps</strong> to
-              figure out what to do — Eventbrite, TimeOut, Instagram, Resy, a group chat. The second
-              was sharper, and it was a negative result.{' '}
-              <strong>Zero interview subjects asked for another social feed.</strong> People did not
-              want more to browse. They wanted an answer.
+              figure out what to do, usually some mix of Google Maps, Eventbrite, Instagram, Resy, 
+              and a group chat. The second finding was a negative result, and it mattered more.{' '}
+              <strong>Zero interview subjects asked for another social feed.</strong> What they described wanting was an
+              answer, not more to look through.
             </p>
 
             <div className="quotes">
@@ -94,44 +101,38 @@ export default function Sift() {
             </div>
 
             <p>
-              That pushed us away from a feed and toward a ranked deck: one card at a time, ordered
-              by predicted fit. Which creates a cold-start problem. A recommender with no signal
-              cannot rank, so our first instinct was the obvious one —{' '}
-              <strong>ask the user up front.</strong>
+              That pushed us away from a feed and toward a ranked deck, one card at a time, ordered
+              by predicted fit, creating a cold-start problem. A recommender with no signal
+              cannot rank, so we did the obvious thing and{' '}
+              <strong>asked the user up front.</strong>
             </p>
           </Section>
 
           <Section id="built" n="02" title="What I built">
             <p>
-              The client is React Native on Expo; the backend is Supabase. The interesting parts are
-              the ingest pipeline and the scoring loop.
+              The client is React Native on Expo and the backend is Supabase. Most of the work went
+              into the ingest pipeline and the scoring loop.
             </p>
             <p>
               <strong>Six live scrapers</strong> pull from Dice, Resident Advisor, Luma, Fever, NYC
-              museums and Eventbrite, refreshed{' '}
+              museums, and Eventbrite, refreshed{' '}
               <strong>every three days via GitHub Actions</strong>. Claude Sonnet finds what the
-              scrapers miss — pop-ups, sample sales, gallery openings. Everything ingested is then
-              cut hard: an LLM rubric rejects tourist traps, corporate spam and kids’ events, which
+              scrapers miss and pulls in a curated "high-taste" list of events, mostly involving 
+              pop-ups, sample sales and gallery openings. Then everything gets
+              cut hard. An LLM rubric rejects tourist traps, corporate spam, and children's events, which
               removes <strong>roughly 85% of incoming inventory</strong>. What survives gets a vibe
-              score from 1–10 via <code>gpt-4o-mini</code>; anything under 5 never loads.
+              score from 1–10 via <code>gpt-4o-mini</code>; anything under a score of 5 never loads.
             </p>
             <p>
-              Aggregators need the firehose because their economics depend on total inventory. We
-              don’t, which is the whole design premise: <strong>rejection is the product.</strong>
+              Aggregators need the firehose because their economics depend on total inventory. Ours
+              didn't, so we could afford to throw most of it away. <strong>Rejection is the product.</strong>
             </p>
 
-            <Shots
-              wide
-              caption="The ingest and scoring pipeline, and the Amplitude view the funnel below was read from."
-              items={[
-                { title: 'Diagram', note: 'Ingest → reject → score → rank', cap: 'Pipeline' },
-                { title: 'Screenshot', note: 'Amplitude funnel', cap: 'Instrumentation' },
-              ]}
-            />
+            <PipelineDiagram />
 
             <p>
               On the client, every swipe carries intent. Each gesture updates four independent
-              signals — category, tag, borough, price band — and the deck{' '}
+              signals (category, tag, borough, price band) and the deck{' '}
               <strong>re-ranks in under 200ms</strong>.
             </p>
 
@@ -147,15 +148,15 @@ export default function Sift() {
 
             <p>
               Cold start blends quality and timing for roughly the first 20 swipes, then hands over
-              to personalized ranking. That threshold is what <code>confidence</code> measures — an
-              internal diagnostic, built to check the recommender had enough signal before we
+              to personalized ranking. That threshold is what <code>confidence</code> measures. I built it as
+              an internal diagnostic, a way to check if he recommender had enough signal before we
               trusted it. It turned out to be the most important number in the product.
             </p>
           </Section>
 
           <Section id="learned" n="03" title="What the data said">
             <p>
-              We launched with no paid acquisition. The App Store funnel was healthy —{' '}
+              We launched with no paid acquisition. The App Store funnel was healthy.{' '}
               <strong>157 impressions, 79 product page views, 18 first-time downloads</strong>, a
               20.5% conversion against Apple’s typical 5–7%. With 23 seeded TestFlight users still
               active, that put us at 41 people.
@@ -163,7 +164,7 @@ export default function Sift() {
 
             <FunnelChart
               title="Acquisition · App Store, launch to week 3, zero spend"
-              caption="20.5% page-view-to-install. Strong ratio, small denominator — 79 views is not a stable estimate, and I'd treat it as directional rather than a benchmark claim."
+              caption="20.5% page-view-to-install. Strong ratio, small denominator. 79 views is not a stable estimate, so I'd treat it as directional rather than a benchmark claim."
               bars={[
                 { label: 'Impressions', value: '157', width: 100 },
                 { label: 'Product page views', value: '79', width: 50 },
@@ -175,7 +176,7 @@ export default function Sift() {
 
             <FunnelChart
               title="Personalization · all 41 users"
-              caption="Not a low completion rate. Zero, out of 41. And roughly 60% of active users reached full personalization confidence anyway — through swipes, saves and repeat category visits alone."
+              caption="Zero out of 41 finished it. Roughly 60% of active users reached full personalization confidence anyway, through swipes, saves and repeat category visits."
               bars={[
                 { label: 'Opened the app', value: '41', width: 100 },
                 { label: 'Started the taste-setter', value: '17', width: 41 },
@@ -201,7 +202,8 @@ export default function Sift() {
               This surfaced because two independent sources agreed. A heuristic UX audit flagged the
               flow as skippable friction; separately, the scoring code showed confidence
               accumulating for users who had never touched it. Neither alone would have been
-              convincing — the audit could have been my taste, and the score could have been a bug.{' '}
+              convincing, since the audit could have just been my taste and the score could have
+              been a bug.{' '}
               <strong>The finding lives in the agreement between them.</strong>
             </p>
 
@@ -209,39 +211,29 @@ export default function Sift() {
               Every figure here comes from a launch cohort of 41 users. The percentages are honest
               but the denominators are small: 60% is roughly 25 people, and the zero is a genuine
               zero rather than a rounding artifact. I’d re-run all of it at 1,000 users before
-              treating any of it as settled — but the direction was clear enough to act on, and a
-              design decision that costs every new user ninety seconds does not need p &lt; 0.05 to
+              treating any of it as settled. The direction was clear enough to act on though, and a
+              design decision that costs every new user ninety seconds doesn’t need p &lt; 0.05 to
               be worth revisiting.
             </Caveat>
           </Section>
 
           <Section id="next" n="04" title="What I'd do next">
             <p>
-              Cutting the taste-setter is the obvious move and the least interesting one. The more
-              useful question is what else in the product asks for information it could observe
-              instead.
+              Cutting the taste-setter is the obvious move and the least interesting one. What I'd actually want to know is what
+              else in the product asks for information it could observe instead.
             </p>
             <ul>
               <li>Cut the taste-setter entirely; keep one optional neighbourhood prompt at first save, where intent already exists</li>
-              <li>Surface confidence to the user as a reason — <em>you’re seeing this because you saved three like it</em> — turning an internal diagnostic into trust</li>
+              <li>Surface confidence to the user as a reason (<em>you’re seeing this because you saved three like it</em>), turning an internal diagnostic into trust</li>
               <li>Instrument the inverse: which users never reach confidence, and what they have in common</li>
               <li>Re-run the audit against the scoring code each quarter, since that pairing is what caught this</li>
             </ul>
 
-            <Shots
-              caption="The proposed flow drops ninety seconds of first-run friction and spends the space explaining why a card appeared."
-              items={[
-                { title: 'Before', note: 'Mood picker, screen 1 of 4', cap: 'Shipped' },
-                { title: 'After', note: 'Straight to the deck', cap: 'Proposed' },
-                { title: 'After', note: 'Reason shown on card', cap: 'Proposed' },
-              ]}
-            />
-
             <p>
-              The broader lesson I took into later work:{' '}
-              <strong>instrument the implicit path before you build the explicit one.</strong> We
-              built the questionnaire because it was the legible solution, and only discovered it
-              was redundant because we happened to have logged the alternative.
+              <strong>Instrument the implicit path before you build the explicit one.</strong> That's the
+              lesson I took into everything after. We built the questionnaire because it was the
+              legible solution, and only found out it was redundant because we happened to have
+              logged the alternative.
             </p>
           </Section>
 

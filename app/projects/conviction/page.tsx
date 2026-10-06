@@ -171,7 +171,7 @@ export default function Conviction() {
 
           <NextPrev
             prev={{ label: 'Sift', href: '/projects/sift' }}
-            next={{ label: 'Scout', href: '/projects/scout' }}
+            next={{ label: 'dart-rag', href: '/projects/dart-rag' }}
           />
         </article>
 

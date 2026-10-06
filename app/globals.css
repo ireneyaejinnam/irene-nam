@@ -87,6 +87,23 @@ text-transform:uppercase;color:var(--ink3);text-align:center;padding:0 16px;line
 .shot .ph b{display:block;font-weight:400;color:var(--ink2);margin-bottom:5px}
 .shot .cap{margin-top:14px;display:block;font-family:var(--font-mono),monospace;font-size:10px;
 letter-spacing:.12em;text-transform:uppercase;color:var(--ink3)}
+.phone .scr{position:relative;border:1px solid var(--rule);border-radius:6px;
+background:var(--raise);overflow:hidden;aspect-ratio:1206/2490}
+.phone .ph{position:relative;font-family:var(--font-mono),monospace;font-size:10px;letter-spacing:.14em;
+text-transform:uppercase;color:var(--ink3);text-align:center;padding:0 16px;line-height:1.7}
+.phone .ph b{display:block;font-weight:400;color:var(--ink2);margin-bottom:5px}
+.phone .cap{margin-top:14px;display:block;font-family:var(--font-mono),monospace;font-size:10px;
+letter-spacing:.12em;text-transform:uppercase;color:var(--ink3)}
+.phone .scr img{display:block;width:100%;height:auto;margin-top:-5%}
+.shot .scr img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.app-shots{grid-template-columns:repeat(4,1fr);margin-top:52px;margin-bottom:20px;gap:28px}
+
+article .diagram{margin:52px 0;border:1px solid var(--rule);background:var(--raise);padding:30px 28px 24px}
+article .diagram figcaption{margin-top:20px;padding-top:18px;border-top:1px solid var(--rule)}
+@media (max-width:700px){
+article .diagram{padding:20px 16px 16px;overflow-x:auto}
+article .diagram svg{min-width:620px}
+}
 
 article{padding:104px 0 0}
 section{padding-bottom:88px}
@@ -109,7 +126,7 @@ pre .c{color:var(--ink3)} pre .a{color:var(--acc)}
 .pull span{display:block;margin-top:16px;font-family:var(--font-mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink3)}
 
 figure{margin:52px 0}
-figcaption{margin-top:16px;font-size:13.5px;color:var(--ink2);max-width:58ch;line-height:1.6}
+figcaption{margin-top:16px;font-size:13.5px;color:var(--ink2);line-height:1.6}
 
 table{width:100%;border-collapse:collapse}
 .tw{border:1px solid var(--rule);background:var(--raise);padding:6px 26px 14px;margin:0 0 22px}
@@ -124,6 +141,29 @@ td.n{font-family:var(--font-mono);font-size:13px;color:var(--acc);font-variant-n
 .caveat p{font-size:14.5px;line-height:1.7;color:var(--ink2);margin:0}
 .caveat em{font-style:normal;font-family:var(--font-mono);font-size:9.5px;letter-spacing:.14em;
 text-transform:uppercase;color:var(--ink3);display:block;margin-bottom:10px}
+
+figure{margin:36px 0}
+figcaption{margin-top:16px;font-size:13.5px;color:var(--ink2);line-height:1.6}
+.chart{border:1px solid var(--rule);padding:20px 22px;display:flex;flex-direction:column;gap:14px}
+.ct{font-family:var(--font-mono);font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;
+color:var(--ink3);margin-bottom:4px}
+.bar{display:grid;grid-template-columns:180px 1fr 60px;gap:14px;align-items:center}
+.bar span{font-size:13.5px;color:var(--ink2)}
+.bar b{font-family:var(--font-mono);font-size:14px;font-weight:400;color:var(--ink);text-align:right;
+font-variant-numeric:tabular-nums}
+.track{height:6px;background:var(--rule);position:relative}
+.fill{position:absolute;top:0;left:0;height:100%;width:0;background:var(--ink2);
+transition:width .8s cubic-bezier(.2,.7,.3,1)}
+.bar.hi .fill{background:var(--acc)}
+.bar.hi b{color:var(--acc)}
+.bar.zero b{color:var(--acc)}
+.bar.zero .fill{background:var(--acc);min-width:2px}
+
+.quotes{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px;margin:32px 0}
+.quotes div{border-left:1px solid var(--accdim);padding-left:18px}
+.quotes p{font-style:italic;color:var(--prose);font-size:15px;line-height:1.72;margin:0}
+.quotes span{display:block;margin-top:10px;font-family:var(--font-mono);font-size:9.5px;
+letter-spacing:.12em;text-transform:uppercase;color:var(--ink3)}
 
 .nextprev{border-top:1px solid var(--ink2);margin-top:20px;padding:34px 0 80px;display:flex;justify-content:space-between;gap:30px;flex-wrap:wrap}
 .nextprev em{font-style:normal;font-family:var(--font-mono);font-size:9.5px;letter-spacing:.14em;
@@ -175,6 +215,8 @@ gap:16px;border-right:0;border-bottom:1px solid var(--rule);padding:20px 24px}
 .head,.aboutwrap,.stub{padding-top:52px} article{padding-top:60px} section{padding-bottom:62px}
 h1{font-size:32px}
 .facts div{border-right:0;border-bottom:1px solid var(--rule)}
+.bar{grid-template-columns:1fr 60px;gap:6px}
+.bar span{grid-column:1/-1}
 .tw{padding:6px 16px 14px} td,th{font-size:13.5px}
 .aboutwrap{grid-template-columns:1fr;gap:36px}
 .aboutwrap .port{max-width:150px}

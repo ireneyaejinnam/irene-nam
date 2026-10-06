@@ -44,17 +44,6 @@ export const projects: Project[] = [
     order: 2,
   },
   {
-    slug: 'scout',
-    name: 'Scout',
-    hook: 'An MCP host that orchestrates Gmail, Calendar, Obsidian and web search to run my own job search.',
-    tags: ['MCP', 'Agents', 'OAuth 2.1'],
-    evidence: [{ value: '6', label: 'servers, 1 authored' }],
-    year: '2026',
-    status: 'building',
-    featured: true,
-    order: 3,
-  },
-  {
     slug: 'dart-rag',
     name: 'dart-rag',
     hook: 'Korean-language retrieval benchmark against frontier models on corporate filings.',
