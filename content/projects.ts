@@ -32,11 +32,11 @@ export const projects: Project[] = [
   {
     slug: 'conviction',
     name: 'Conviction',
-    hook: "Diffs a company's risk factors year over year, so you see what changed in the language — not just the numbers.",
+    hook: "Diffs a company's risk factors year over year, so you see what changed in the language, not just the numbers.",
     tags: ['RAG', 'GPT-4o', 'ChromaDB', 'SEC EDGAR'],
     evidence: [
-      { value: 'TODO', label: 'chunks indexed' },
-      { value: 'TODO', label: 'eval pairs' },
+      { value: '4', label: 'tickers in the watchlist' },
+      { value: '~800', label: 'tokens per chunk, Item-bounded' },
     ],
     year: '2026',
     status: 'building',

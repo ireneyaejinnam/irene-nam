@@ -3,10 +3,6 @@ import { Footer } from '@/components/Footer'
 
 export const metadata = { title: 'About' }
 
-const Todo = ({ children }: { children: React.ReactNode }) => (
-  <span style={{ color: 'var(--ink2)' }}>[{children}]</span>
-)
-
 export default function About() {
   return (
     <>
@@ -18,29 +14,29 @@ export default function About() {
               About
             </span>
             <h1>
-              I translate between people who don't share a vocabulary, build from what I learn, 
+              I translate between people who don&apos;t share a vocabulary, build from what I learn,
               then figure out what happens when it meets the real world.
             </h1>
 
             <p className="lede" style={{ marginTop: 34 }}>
-              Both halves of that sentence came from the same four years, and I learned the second
-              half because I got the first half wrong.
+              Both halves of that came out of the same four years. I learned the second half because
+              I got the first half wrong.
             </p>
 
             <p>
               A trader told me the pricing screen was slow. The quant who owned the model agreed it
               was slow. So did the engineer who ran the service. Three people, one word, total
-              agreement — and for most of a week we worked on three different problems. To the
-              trader, slow meant the gap between wanting a price and having one, most of which was
-              happening in his hands, not the system. To the quant it meant how often the model
-              recalibrated. To the engineer it meant p99 latency on a service that was, by his
-              numbers, comfortably fast. Nobody was wrong. Nobody was describing the same thing.
+              agreement. For most of a week we worked on three different problems. To the trader,
+              slow meant the gap between wanting a price and having one, and most of that gap was
+              happening in his hands rather than in the system. The quant meant how often the model
+              recalibrated. For the engineer it was p99 latency on a service his numbers said was
+              comfortably fast. Nobody was wrong. Nobody was describing the same thing.
             </p>
 
             <p>
-              What fixed it wasn’t technical. It was getting the three of them to define the word in
-              one room, and then <strong>measuring the thing they actually meant</strong> instead of
-              the thing each had assumed the others meant. I’ve done some version of that every year
+              Getting the three of them in a room to agree on the word was the whole fix. After that
+              we could <strong>measure the thing they actually meant</strong> rather than the thing
+              each had assumed the others meant. I&apos;ve done some version of that every year
               since.
             </p>
 
@@ -49,57 +45,43 @@ export default function About() {
             <p>
               I spent four years as a product manager on FICC electronic trading at Bank of America,
               mostly on external vendor integrations and real-time data pipelines. Vendor work is the
-              part I’d point at now: someone else’s system, someone else’s roadmap, your users’
-              deadline, and no authority over any of it. You get very good at finding the one
-              question whose answer determines everything downstream, and at asking it before anyone
-              has committed to a design.
+              part I&apos;d point at now: someone else&apos;s system, someone else&apos;s roadmap,
+              your users&apos; deadline, and no authority over any of it. You learn to find the one
+              question whose answer determines everything downstream, and to ask it before anyone has
+              committed to a design.
             </p>
 
             <p>
-              It’s also where I stopped trusting stated requirements as a description of what people
-              do. A desk that can’t opt out of your software will tell you immediately and
-              unsentimentally when you’ve misread them.{' '}
-              <Todo>
-                Your turn: one or two sentences on why you left for the master’s — what you wanted to
-                be able to build rather than specify.
-              </Todo>
+              It&apos;s also where I stopped trusting stated requirements as a description of what
+              people do. A desk that can&apos;t opt out of your software tells you the same day when
+              you&apos;ve misread them, and they aren&apos;t gentle about it.
             </p>
 
             <div className="brk" />
 
             <p>
-              At Columbia I’ve been building the things I used to write specs for, and running into
-              the same problem from the other side. On <strong>Sift</strong>, the event app I
+              At Columbia I&apos;ve been building the things I used to write specs for, and running
+              into the same problem from the other side. On <strong>Sift</strong>, the event app I
               co-built and shipped, we put a taste questionnaire in front of every new user because a
-              recommender with no signal can’t rank. Not one person finished it. Sixty percent of
-              active users reached full personalization anyway, from swipes alone. We had assumed
-              users needed to be asked. They’d been answering the whole time, and the only reason I
-              could see it was that we’d instrumented both paths.
+              recommender with no signal can&apos;t rank. Not one person finished it. Sixty percent
+              of active users reached full personalization anyway, from swipes alone. We had assumed
+              users needed to be asked. They had been answering the whole time, and I could only see
+              it because we had instrumented both paths.
             </p>
 
             <p>
               On <strong>Conviction</strong>, a retrieval system over SEC filings, I made the same
               mistake against a machine instead of a person. I built year-over-year risk-factor
               diffing on top of retrieval, because retrieval was the system I had. But top-k returns
-              the passages most <em>similar</em> between two documents — which are precisely the ones
-              that didn’t change. I was sampling boilerplate and diffing it. The feature only worked
-              once I was willing to route around the thing I’d just finished building.
+              the passages most <em>similar</em> between two documents, which are exactly the ones
+              that didn&apos;t change. I was sampling boilerplate and diffing it. The feature only
+              worked once I was willing to route around the thing I had just finished building.
             </p>
 
             <p>
-              I’m also a research assistant at Columbia’s SEA Lab, working on a multi-agent system
-              for mental rehearsal under Professor Xuhai Xu, with a paper under submission to CHI
-              2027.
-            </p>
-
-            <div className="brk" />
-
-            <p>
-              <Todo>
-                Your turn: one short paragraph that isn’t about work. Not a hobbies list — one
-                specific thing you actually care about, in the voice you’d use out loud. This is the
-                paragraph people remember.
-              </Todo>
+              I&apos;m also a research assistant at Columbia&apos;s SEA Lab, working on a multi-agent
+              system for mental rehearsal under Professor Xuhai Xu, with a paper under submission to
+              CHI 2027.
             </p>
 
             <div className="now">
@@ -113,11 +95,7 @@ export default function About() {
                 </div>
                 <div>
                   <em>Researching</em>
-                  <p>Multi-agent mental rehearsal at Columbia’s SEA Lab. Under submission to CHI 2027.</p>
-                </div>
-                <div>
-                  <em>Reading</em>
-                  <p><Todo>Two or three things. Update when it stops being true, or delete this row.</Todo></p>
+                  <p>Multi-agent mental rehearsal at Columbia&apos;s SEA Lab. Under submission to CHI 2027.</p>
                 </div>
                 <div>
                   <em>Looking for</em>
@@ -151,7 +129,7 @@ export default function About() {
               <div><em>Available</em><span>December 2026</span></div>
             </div>
             <div className="cta" style={{ marginTop: 26 }}>
-              <a className="btn" href="mailto:you@example.com" style={{ width: '100%', justifyContent: 'center' }}>
+              <a className="btn" href="mailto:irene.nam@columbia.edu" style={{ width: '100%', justifyContent: 'center' }}>
                 Email me <i>↗</i>
               </a>
             </div>

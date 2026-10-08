@@ -31,7 +31,7 @@ const kr = Noto_Sans_KR({
 })
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://irene-nam.com'), // TODO: your domain
+  metadataBase: new URL('https://irene-nam.com'), 
   title: {
     default: 'Irene Nam',
     template: '%s — Irene Nam',

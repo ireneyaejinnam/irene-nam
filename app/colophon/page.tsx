@@ -40,11 +40,11 @@ export default function Colophon() {
           </p>
           <p>Built by hand, no template.</p>
 
-          <div className="cta" style={{ marginTop: 34 }}>
+          {/* <div className="cta" style={{ marginTop: 34 }}>
             <a className="btn" href="https://github.com/">
               Source on GitHub <i>↗</i>
             </a>
-          </div>
+          </div> */}
 
           <div className="facts">
             <div><em>Framework</em><b>Next.js 15, App Router</b></div>

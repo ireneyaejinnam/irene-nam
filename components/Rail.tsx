@@ -17,7 +17,7 @@ const NAV = [
   { href: '/experience', label: 'Experience' },
   { href: '/projects', label: 'Projects' },
   { href: '/about', label: 'About' },
-  { href: '/resume.pdf', label: 'Résumé' },
+  { href: '/resume.pdf', label: 'Resume' },
 ]
 
 export function Rail({ toc, back = false, links }: Props) {
